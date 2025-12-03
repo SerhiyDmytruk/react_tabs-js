@@ -12,7 +12,11 @@ export const tabs = [
 ];
 
 function currentTab(id) {
-  return tabs.filter(tab => tab.id === id)[0];
+  if (id) {
+    return tabs.filter(tab => tab.id === id)[0];
+  }
+
+  return tabs[0];
 }
 
 export const App = () => {
