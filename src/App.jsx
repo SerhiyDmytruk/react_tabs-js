@@ -16,27 +16,20 @@ function currentTab(id) {
 }
 
 export const App = () => {
-  const [activeTab, setActiveTab] = useState('tab-1');
+  const firstTab = tabs[0].id;
+  const [activeTab, setActiveTab] = useState(firstTab);
 
   return (
     <div className="section">
       <h1 className="title">Selected tab is {currentTab(activeTab).title}</h1>
 
-      <div data-cy="TabsComponent">
-        <div className="tabs is-boxed">
-          <Tabs
-            tabs={tabs}
-            activeTabId={activeTab}
-            onTabSelected={info => {
-              setActiveTab(info);
-            }}
-          />
-        </div>
-
-        <div className="block" data-cy="TabContent">
-          {currentTab(activeTab).content}
-        </div>
-      </div>
+      <Tabs
+        tabs={tabs}
+        activeTabId={activeTab}
+        onTabSelected={info => {
+          setActiveTab(info);
+        }}
+      />
     </div>
   );
 };
