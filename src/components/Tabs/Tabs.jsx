@@ -19,7 +19,7 @@ export const Tabs = ({ tabs, activeTabId, onTabSelected }) => {
             return (
               <li
                 data-cy="Tab"
-                className={classHandler(tab.id, 'asdasd') ? 'is-active' : ''}
+                className={classHandler(tab.id, activeTabId) ? 'is-active' : ''}
                 key={tab.id}
               >
                 <a
